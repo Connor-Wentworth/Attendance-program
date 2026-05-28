@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
 	vector<string> names = {"Envy", "Ilyas", "Damon", "Hamir", "Anthony", "Bode","George",
-	                        "Jordan","Christopher", "Caleb", "Seth", "Ryan", "Tiahna", "Bailin", "Elija", "Connor"
+	                        "Jordan","Christopher", "Caleb", "Seth", "Ryan", "Tiahna", "Bailin", "Elijah", "Connor"
 	                       };
 	vector<string> attendance = {}; //vector to hold attendance
 	string name; //to take name
@@ -24,20 +24,24 @@ int main() {
 		while (i < 16) {
 			fail = 0;
 			i++;
-			cout << names.front() << " are they present, yes(1) no(2)\n"; //asks if student is present
+			for (string names: names) {
+			    cout << names << " are they present, yes(1) no(2)\n"; //asks if student is present
 			cin >> attendances;
 			if (attendances == 1) {
 
-				MyFile << names.size() <<  ", attendance: present\n"; //1 = yes
+				MyFile << names <<  ", attendance: present\n"; //1 = yes
 				attendance.push_back(", attendance: present\n");
 			}
 			else if (attendances == 2) {
-				MyFile << names.front() <<  ", attendance: absent\n"; //2 = no
+				MyFile << names <<  ", attendance: absent\n"; //2 = no
 				attendance.push_back(", attendance: absent\n");
 			} else {
 				cout << "invalid input, try again\n"; //otherwise reloops
 				fail++;
 			}
+			}
+			
+			return 0;
 		}
 	} while (fail == 1); // resets on invalid input
 
